@@ -12,11 +12,11 @@ class UsersService {
 
     createUsers = async (body) => {
         
-        const {nombre, apellido, email, password} = body
+        const {first_name, last_name, email, password} = body
 
         const newUser = {
-            nombre,
-            apellido,
+            first_name,
+            last_name,
             email,
             password: createHash(password)
         }

@@ -10,7 +10,7 @@ class UsersController {
     postUsers = async (req, res) => {
 
         try {
-            const {nombre, apellido, email, password} = req.body
+            const {first_name, last_name, email, password} = req.body
             const users = await this.usersService.createUsers(req.body)
             return res.status(201).send({status: 'success', message: 'Usuario creado exitosamente', data: users})
 

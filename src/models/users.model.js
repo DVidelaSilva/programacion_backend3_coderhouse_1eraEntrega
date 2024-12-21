@@ -6,12 +6,12 @@ const usersCollection = 'users'
 
 const userSchema = new Schema({
 
-    nombre: {
+    first_name: {
         type: String,
         require: true
     },
 
-    apellido: {
+    last_name: {
         type: String,
         require: true
     },

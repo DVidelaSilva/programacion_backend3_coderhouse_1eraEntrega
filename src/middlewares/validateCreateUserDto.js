@@ -1,15 +1,15 @@
 
 const validateCreateUserDto = (req, res, next) => {
 
-    const { nombre, apellido, email, password } = req.body;
+    const { first_name, last_name, email, password } = req.body;
 
     const errors = []
 
-    if(typeof nombre !== 'string' || !nombre.trim()) {
-        errors.push({fields: 'nombre', message: 'El nombre debe ser una cadena no vacia'})
+    if(typeof first_name !== 'string' || !first_name.trim()) {
+        errors.push({fields: 'first_name', message: 'El first_name debe ser una cadena no vacia'})
     }
-    if (typeof apellido !== 'string' || !apellido.trim()) {
-        errors.push({ field: 'apellido', message: 'El apellido debe ser una cadena no vacía' });
+    if (typeof last_name !== 'string' || !last_name.trim()) {
+        errors.push({ field: 'last_name', message: 'El last_name debe ser una cadena no vacía' });
       }
 
     if (typeof email !== 'string' || !email.trim()) {
