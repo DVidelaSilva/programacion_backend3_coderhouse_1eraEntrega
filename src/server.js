@@ -1,6 +1,6 @@
 import express from 'express'
 import envConfig from './configs/envConfig.js'
-import appRouter from './routes/appRoutes.js'
+import appRouter from './routes/appRouter.js'
 import connectMongoDB from './configs/mongoDBConfig.js'
 
 

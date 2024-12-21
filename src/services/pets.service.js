@@ -1,5 +1,6 @@
 import PetsRepository from '../repositories/pets.repository.js'
 import createHash from '../configs/bcrypt.config.js'
+import generatePetFaker from '../utils/petsFaker.js'
 
 
 class PetsService {
@@ -29,6 +30,19 @@ class PetsService {
     findAllPets = async () => {
         const pets = await this.petRepository.findAllPetsInDB()
         return pets  
+    }
+
+
+    createPetFaker = async () => {
+        const pets = []
+        for(let i=0; i<50; i++){
+            pets.push(generatePetFaker())
+        }
+
+        //const arrayuser = await this.userRepository.createUserInDB(newUser)
+        return pets
+
+        
     }
 
 }

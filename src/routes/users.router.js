@@ -13,6 +13,7 @@ const usersController = new UsersController()
 
 userRouter.get('/',  usersController.getUsers)
 userRouter.post('/', validateCreateUserDto, usersController.postUsers)
+userRouter.get('/mockingusers', usersController.getUsersFaker)
 
 
 export default userRouter
