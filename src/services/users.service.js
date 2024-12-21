@@ -1,37 +1,35 @@
-
+import UsersRepository from '../repositories/users.repository.js'
+import createHash from '../configs/bcrypt.config.js'
 
 
 class UsersService {
 
     constructor(){
          this.users = []
+         this.userRepository = new UsersRepository()
     }
     
-
-    findAllUsers = async () => {
-
-    return this.users
-        
-    }
-
 
     createUsers = async (body) => {
         
         const {nombre, apellido, email, password} = body
-        
-        
 
-        const user = {
+        const newUser = {
             nombre,
             apellido,
             email,
-            password
+            password: createHash(password)
         }
 
-        this.users.push(user)
+        const user = await this.userRepository.createUserInDB(newUser)
+        return user
+    }
 
 
-        return this.users
+
+    findAllUsers = async () => {
+        const users = await this.userRepository.findAllUsersInDB()
+        return users  
     }
 
 }

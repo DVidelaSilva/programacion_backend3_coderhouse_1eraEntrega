@@ -7,24 +7,30 @@ class UsersController {
     }
 
 
-
-    getUsers = async (req, res) => {
-        const users = await this.usersService.findAllUsers()
-
-        return res.send(users)
-    }
-
-
     postUsers = async (req, res) => {
 
-        const {nombre, apellido, email, password} = req.body
+        try {
+            const {nombre, apellido, email, password} = req.body
+            const users = await this.usersService.createUsers(req.body)
+            return res.status(201).send({status: 'success', message: 'Usuario creado exitosamente', data: users})
 
-        const users = await this.usersService.createUsers(req.body)
+        } catch (error) {
+            return res.status(500).json({ message: 'Error al crear usuario' })
+        }
 
-        return res.send(users)
     }
 
+    getUsers = async (req, res) => {
+        try {
+            const users = await this.usersService.findAllUsers()
+            return res.status(200).send({status: 'success', message: 'Usuarios Encontrados exitosamente', data: users})
 
+        } catch (error) {
+            return res.status(500).json({ message: 'Error al devolver usuarios' })
+        }
+
+
+    }
 
 }
 

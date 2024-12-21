@@ -1,6 +1,7 @@
 import express from 'express'
 import envConfig from './configs/envConfig.js'
 import appRouter from './routes/appRoutes.js'
+import connectMongoDB from './configs/mongoDBConfig.js'
 
 
 const app = express()
@@ -10,7 +11,7 @@ app.use(express.urlencoded({extended: true}))
 
 app.use(appRouter)
 
-
+connectMongoDB()
 
 
 app.listen(envConfig.port, () => {
