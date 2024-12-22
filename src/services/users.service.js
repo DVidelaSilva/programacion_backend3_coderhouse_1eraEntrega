@@ -25,20 +25,6 @@ class UsersService {
     }
 
 
-    createUserFaker = async () => {
-        const users = []
-        for(let i=0; i<50; i++){
-            users.push(generateUserFaker())
-        }
-
-        //const arrayuser = await this.userRepository.createUserInDB(newUser)
-        return users
-
-        
-    }
-
-
-
     findAllUsers = async () => {
         const users = await this.userRepository.findAllUsersInDB()
         return users  

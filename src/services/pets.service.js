@@ -33,17 +33,6 @@ class PetsService {
     }
 
 
-    createPetFaker = async () => {
-        const pets = []
-        for(let i=0; i<50; i++){
-            pets.push(generatePetFaker())
-        }
-
-        //const arrayuser = await this.userRepository.createUserInDB(newUser)
-        return pets
-
-        
-    }
 
 }
 

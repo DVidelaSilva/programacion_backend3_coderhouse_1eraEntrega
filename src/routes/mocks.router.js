@@ -1,17 +1,15 @@
-
 import { Router } from "express";
-
-import UsersController from "../controllers/users.controller.js";
-import PetsController from "../controllers/pets.controller.js";
+import validateCreateMockDto from '../middlewares/validateCreateMockDto.js'
+import MocksController from "../controllers/mocks.controller.js";
 
 const mockRouter = Router()
 
-const usersController = new UsersController()
-const petsController = new PetsController()
+const mocksController = new MocksController()
 
 
-mockRouter.get('/mockingusers', usersController.getUsersFaker)
-mockRouter.get('/mockingpets', petsController.getPetsFaker)
+mockRouter.get('/mockingusers', mocksController.getUsersFaker)
+mockRouter.get('/mockingpets', mocksController.getPetsFaker)
+mockRouter.post('/generatedata', validateCreateMockDto, mocksController.postGenerateData)
 
 
 export default mockRouter

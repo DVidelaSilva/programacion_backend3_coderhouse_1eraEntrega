@@ -1,4 +1,3 @@
-
 import { Router } from "express";
 
 import PetsController from "../controllers/pets.controller.js";

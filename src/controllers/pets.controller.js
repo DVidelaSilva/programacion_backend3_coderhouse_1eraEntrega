@@ -17,8 +17,8 @@ class PetsController {
         } catch (error) {
             return res.status(500).json({ message: 'Error al crear pet' })
         }
-
     }
+
 
     getPets = async (req, res) => {
         try {
@@ -28,21 +28,8 @@ class PetsController {
         } catch (error) {
             return res.status(500).json({ message: 'Error al devolver pets' })
         }
-
-
     }
 
-    getPetsFaker = async (req, res) => {
-        try {
-            const pets = await this.petsService.createPetFaker()
-            return res.status(200).send({status: 'success', message: 'Pets creados con Fake exitosamente', data: pets})
-
-        } catch (error) {
-            return res.status(500).json({ message: 'Error al devolver pets' })
-        }
-
-
-    }
 
 }
 

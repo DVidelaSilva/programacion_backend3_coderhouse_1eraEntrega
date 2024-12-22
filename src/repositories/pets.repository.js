@@ -21,6 +21,10 @@ class PetsRepository {
         return pets
     }
 
+    deletePets = async () => {
+        await petModel.deleteMany()
+    }
+
 
 
 

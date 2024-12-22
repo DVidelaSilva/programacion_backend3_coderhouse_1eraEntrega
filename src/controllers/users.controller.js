@@ -17,7 +17,6 @@ class UsersController {
         } catch (error) {
             return res.status(500).json({ message: 'Error al crear usuario' })
         }
-
     }
 
     
@@ -30,22 +29,9 @@ class UsersController {
         } catch (error) {
             return res.status(500).json({ message: 'Error al devolver usuarios' })
         }
-
-
     }
 
 
-    getUsersFaker = async (req, res) => {
-        try {
-            const users = await this.usersService.createUserFaker()
-            return res.status(200).send({status: 'success', message: 'Usuarios creados con Fake exitosamente', data: users})
-
-        } catch (error) {
-            return res.status(500).json({ message: 'Error al devolver usuarios' })
-        }
-
-
-    }
 
 }
 

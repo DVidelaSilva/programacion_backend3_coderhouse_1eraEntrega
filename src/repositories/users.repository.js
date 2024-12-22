@@ -9,7 +9,6 @@ class UsersRepository {
     }
     
 
-
     createUserInDB = async (data) => {
         const user = await userModel.create(data)
         return user
@@ -19,6 +18,11 @@ class UsersRepository {
     findAllUsersInDB = async () => {
         const users = await userModel.find()
         return users
+    }
+
+
+    deleteUsers = async () => {
+        await userModel.deleteMany()
     }
 
 
