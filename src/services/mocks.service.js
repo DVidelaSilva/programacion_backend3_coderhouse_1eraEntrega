@@ -9,15 +9,19 @@ class MocksService {
     constructor(){
          this.userRepository = new UsersRepository()
          this.petRepository = new PetsRepository()
+         this.numUsers = 50
+         this.numPets = 50
+
     }
 
 
 
     createUserFaker = async () => {
         const users = []
-        for(let i=0; i<50; i++){
+        for(let i=0; i<this.numUsers; i++){
             users.push(generateUserFaker())
         }
+        console.log(users);
         return users
     }
 
@@ -25,9 +29,10 @@ class MocksService {
 
     createPetFaker = async () => {
         const pets = []
-        for(let i=0; i<50; i++){
+        for(let i=0; i<this.numPets; i++){
             pets.push(generatePetFaker())
         }
+        console.log(pets);
         return pets
     }
 
